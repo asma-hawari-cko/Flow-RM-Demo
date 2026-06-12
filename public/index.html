@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in — Checkout.com Flow demo</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <div class="brand">
+        <div class="brand__logo">C</div>
+        <div class="brand__name">Checkout.com Flow demo</div>
+      </div>
+
+      <h1>Sign in to continue</h1>
+      <p class="lead">Enter your name and email to start a payment. We use these to create your payment session.</p>
+
+      <div id="error" class="alert alert--error" role="alert"></div>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="ada@example.com" required />
+        </div>
+
+        <button type="submit" class="btn">Continue to checkout</button>
+      </form>
+    </main>
+
+    <script src="/login.js"></script>
+  </body>
+</html>

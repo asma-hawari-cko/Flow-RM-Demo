@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout — Checkout.com Flow sample</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <!-- Checkout.com Web Components SDK (Flow lives here). -->
+    <script src="https://checkout-web-components.checkout.com/index.js"></script>
+  </head>
+  <body>
+    <main class="card card--wide">
+      <div class="brand">
+        <div class="brand__logo">C</div>
+        <div class="brand__name">Checkout.com Flow sample</div>
+      </div>
+
+      <h1>Complete your payment</h1>
+      <p class="lead">Signed in as <strong id="user-label">…</strong>. <a href="#" id="sign-out">Sign out</a></p>
+
+      <div id="error" class="alert alert--error" role="alert"></div>
+      <div id="notice" class="alert alert--info" role="status"></div>
+
+      <section class="summary" aria-label="Order summary">
+        <div class="summary__row"><span>Order reference</span><strong id="summary-ref">—</strong></div>
+        <div class="summary__row"><span>Subtotal</span><strong id="summary-subtotal">25.00 AED</strong></div>
+        <div class="summary__row summary__row--discount" id="summary-discount-row" hidden>
+          <span id="summary-discount-label">Discount</span>
+          <strong id="summary-discount">−0.00 AED</strong>
+        </div>
+        <div class="summary__row summary__row--total">
+          <span>Total</span><strong id="summary-total">25.00 AED</strong>
+        </div>
+      </section>
+
+      <div id="promo-banner" class="promo-banner" hidden>
+        <span class="promo-banner__icon" aria-hidden="true">%</span>
+        <div>
+          <div class="promo-banner__label" id="promo-banner-label">Promotion applied</div>
+          <div class="promo-banner__desc" id="promo-banner-desc"></div>
+        </div>
+      </div>
+
+      <form id="payment-form" novalidate>
+        <label class="field-label">Payment method</label>
+
+        <div id="saved-cards" class="saved-cards" role="radiogroup" aria-label="Saved cards">
+          <!-- saved card rows + the "new card" row are rendered here by checkout.js -->
+        </div>
+
+        <div id="flow-section">
+          <div id="flow-container" aria-live="polite">
+            <p class="muted text-center">Loading payment options…</p>
+          </div>
+        </div>
+
+        <button id="pay-button" type="submit" class="btn">
+          <span id="pay-button-label">Pay 25.00 AED</span>
+        </button>
+      </form>
+    </main>
+
+    <script src="/checkout.js"></script>
+  </body>
+</html>

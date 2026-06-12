@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Context7__resolve-library-id",
+      "Bash(node -c /Users/asma.hawari/Sites/TestClaudeIntegrationPayments/server.js)",
+      "Bash(node -c /Users/asma.hawari/Sites/TestClaudeIntegrationPayments/public/checkout.js)",
+      "Bash(node -c /Users/asma.hawari/Sites/TestClaudeIntegrationPayments/public/login.js)",
+      "WebFetch(domain:www.checkout.com)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0 Safari/537.36\" \"https://www.checkout.com/docs/payments/accept-payments/accept-a-payment-on-your-website/extend-your-flow-integration/dynamically-adjust-the-payment-amount\" -o /tmp/cko-doc.html)",
+      "Read(//tmp/**)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 *)",
+      "Bash(claude mcp *)",
+      "Read(//Users/asma.hawari/.config/**)",
+      "Read(//Users/asma.hawari/.claude/**)",
+      "Bash(claude doctor *)"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payment failed — Checkout.com Flow demo</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <div class="result">
+        <div class="result__icon result__icon--error" aria-hidden="true">&#10007;</div>
+        <h1>Payment unsuccessful</h1>
+        <p id="reason">We couldn't process your payment. No charge has been made — please try again with a different method.</p>
+
+        <div class="summary text-center" id="details" style="display:none;">
+          <div class="summary__row"><span>Payment ID</span><strong id="payment-id">—</strong></div>
+          <div class="summary__row" id="status-row" style="display:none;"><span>Status</span><strong id="payment-status">—</strong></div>
+        </div>
+
+        <div class="stack">
+          <a class="btn" href="/checkout.html">Try again</a>
+          <a class="btn btn--ghost" href="/" id="sign-out">Use a different account</a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('cko-payment-id') || params.get('cko-session-id') || '';
+        if (id) {
+          document.getElementById('details').style.display = 'block';
+          document.getElementById('payment-id').textContent = id;
+
+          fetch('/api/payments/' + encodeURIComponent(id))
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (data) {
+              if (!data) return;
+              if (data.status) {
+                document.getElementById('payment-status').textContent = data.status;
+                document.getElementById('status-row').style.display = 'flex';
+              }
+              if (data.response_summary) {
+                document.getElementById('reason').textContent = 'Reason: ' + data.response_summary;
+              }
+            })
+            .catch(function () { /* non-blocking */ });
+        }
+
+        document.getElementById('sign-out').addEventListener('click', function () {
+          sessionStorage.removeItem('cko_user');
+        });
+      })();
+    </script>
+  </body>
+</html>

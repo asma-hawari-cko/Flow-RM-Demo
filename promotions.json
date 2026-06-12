@@ -1,0 +1,13 @@
+{
+  "promotions": [
+    {
+      "id": "promo_visa_demo_42424242",
+      "bin_prefix": "42424242",
+      "discount_percent": 20,
+      "label": "Visa demo card",
+      "description": "20% off the whole cart when paying with cards starting 42424242.",
+      "active": true,
+      "created_at": "2026-05-17T00:00:00.000Z"
+    }
+  ]
+}
