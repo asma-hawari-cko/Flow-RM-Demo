@@ -133,8 +133,8 @@ app.post('/api/payment-sessions', async (req, res) => {
     billing: { address: { country: 'AE' } },
     customer: { name: customer.name, email: customer.email },
     '3ds': { enabled: true, attempt_n3d: false },
-    success_url: `${origin}/success.html`,
-    failure_url: `${origin}/failure.html`,
+    success_url: `https://flow-rm-demo.onrender.com/success.html`,
+    failure_url: `https://flow-rm-demo.onrender.com/failure.html`,
     processing_channel_id: CHECKOUT_PROCESSING_CHANNEL_ID || undefined,
   };
 
